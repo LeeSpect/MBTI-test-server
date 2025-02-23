@@ -29,4 +29,8 @@ public class UserCount {
 	@Builder.Default
 	@Column(name = "user_count", columnDefinition = "BIGINT(20) default 0")
 	private Long userCount = 0L;
+
+	public void increaseUserCount() {
+		this.userCount++;
+	}
 }
