@@ -1,3 +1,12 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
+
   application:
     name: MBTI-test-server
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DOMAIN}:3306/${SCHEMA_NAME}?serverTimezone=Asia/Seoul
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
