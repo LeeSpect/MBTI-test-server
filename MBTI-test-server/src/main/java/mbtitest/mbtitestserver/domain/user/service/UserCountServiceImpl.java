@@ -16,6 +16,12 @@ public class UserCountServiceImpl implements UserCountService {
 	private final UserCountRepository userCountRepository;
 
 	@Override
+	public UserCountResponse getUserCount() {
+		UserCount userCount = userCountRepository.findById(1L).orElse(UserCount.builder().id(1L).build());
+		return UserCountResponse.builder().userCount(userCount).build();
+	}
+
+	@Override
 	public UserCountResponse increaseUserCount() {
 		UserCount userCount = userCountRepository.findById(1L).orElse(UserCount.builder().id(1L).build());
 		userCount.increaseUserCount();
