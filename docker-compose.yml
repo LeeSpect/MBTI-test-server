@@ -4,8 +4,8 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     restart: always
-    ports:
-      - "3306:3306"
+    env_file:
+      - ./MBTI-test-server/.env
     environment:
       - MYSQL_DATABASE=${SCHEMA_NAME}
       - MYSQL-USER=${MYSQL_USER}
@@ -13,13 +13,14 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
       
   backend:
     image: my-back-server
     container_name: back-server
     restart: always
-    expose:
-      - "8080"
     environment:
       - TZ=Asia/Seoul
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${SCHEMA_NAME}?useSSL=false&serverTimezone=UTC
@@ -29,17 +30,21 @@ services:
       - mysql
     env_file:
       - ./MBTI-test-server/.env
+    expose:
+      - "8080"
+
      
   nginx:
     image: nginx:latest
     container_name: nginx_proxy
     restart: always
-    ports:
-      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - backend
+    ports:
+      - "80:80"
+
 
 volumes:
   mysql_data:
