@@ -27,8 +27,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}
     depends_on:
       - mysql
-    #enf_file:
-     # - ./MBTI-test-server/.env # 나중에 할 것
+    env_file:
+      - ./MBTI-test-server/.env
      
   nginx:
     image: nginx:latest
