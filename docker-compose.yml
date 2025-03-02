@@ -4,8 +4,6 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     restart: always
-    env_file:
-      - ./MBTI-test-server/.env
     environment:
       - MYSQL_DATABASE=${SCHEMA_NAME}
       - MYSQL-USER=${MYSQL_USER}
