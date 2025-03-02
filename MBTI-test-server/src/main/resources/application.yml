@@ -8,5 +8,26 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DOMAIN}:3306/${SCHEMA_NAME}?serverTimezone=Asia/Seoul
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        jdbc:
+          time_zone: Asia/Seoul
+        ddl-auto: ${JPA_DDL_AUTO_OPTION}
+        format_sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+    show-sql: ${JPA_SHOW_SQL_OPTION}
+    open-in-view: false
+
+  sql:
+    init:
+      mode: ${SQL_INIT_MODE}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
