@@ -1,5 +1,19 @@
-version: '2.2'
-services:
+version: '2.3'
+services:   
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL-USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      
   backend:
     image: my-back-server
     container_name: back-server
@@ -8,8 +22,14 @@ services:
       - "8080"
     environment:
       - TZ=Asia/Seoul
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=${MYSQL_USER}
+      - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}
+    depends_on:
+      - mysql
     #enf_file:
      # - ./MBTI-test-server/.env # 나중에 할 것
+     
   nginx:
     image: nginx:latest
     container_name: nginx_proxy
@@ -20,3 +40,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - backend
+
+volumes:
+  mysql_data:
