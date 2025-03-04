@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import static lombok.AccessLevel.PROTECTED;
 
+@Entity
 @Getter
 @Builder
 @Table(name = "mbti_duo")
