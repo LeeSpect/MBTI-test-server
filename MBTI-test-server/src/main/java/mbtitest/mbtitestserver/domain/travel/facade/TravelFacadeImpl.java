@@ -1,5 +1,6 @@
 package mbtitest.mbtitestserver.domain.travel.facade;
 
+import mbtitest.mbtitestserver.domain.travel.model.dto.request.TravelTestResultRequest;
 import mbtitest.mbtitestserver.domain.travel.service.MbtiCountService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,8 @@ public class TravelFacadeImpl implements TravelFacade {
 
 	@Override
 	@Transactional
-	public void updateMbtiCount(String mbti) {
-		mbtiCountService.increaseCount(mbti);
+	public void updateMbtiCount(TravelTestResultRequest request) {
+		mbtiCountService.increaseCount(request.getMbtiId());
 		userCountService.increaseUserCount();
 	}
 

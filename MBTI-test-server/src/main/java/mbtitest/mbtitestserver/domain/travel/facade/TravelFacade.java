@@ -1,6 +1,8 @@
 package mbtitest.mbtitestserver.domain.travel.facade;
 
+import mbtitest.mbtitestserver.domain.travel.model.dto.request.TravelTestResultRequest;
+
 public interface TravelFacade {
 
-    void updateMbtiCount(String mbtiId);
+    void updateMbtiCount(TravelTestResultRequest request);
 }
