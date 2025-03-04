@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS mbti_duo (
+    mbti VARCHAR(4) PRIMARY KEY,
+    duo VARCHAR(4) NOT NULL
+);
