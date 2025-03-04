@@ -14,3 +14,21 @@
 # INSERT INTO mbti_duo (mbti, duo) VALUES ('ENFP','INFJ');
 # INSERT INTO mbti_duo (mbti, duo) VALUES ('ESTJ','ISTP');
 # INSERT INTO mbti_duo (mbti, duo) VALUES ('ESFJ','ISFP');
+
+-- 각 MBTI 유형별로 초기 인원수를 0으로 삽입
+# INSERT INTO mbti_count (mbti, count) VALUES ('INTJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('INTP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('INFJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('INFP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ISTJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ISFJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ISTP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ISFP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ESTP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ESFP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ENTJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ENTP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ENFJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ENFP', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ESTJ', 0);
+# INSERT INTO mbti_count (mbti, count) VALUES ('ESFJ', 0);
