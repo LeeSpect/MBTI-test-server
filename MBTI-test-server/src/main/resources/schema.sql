@@ -1,4 +1,6 @@
 CREATE TABLE IF NOT EXISTS mbti_duo (
-    mbti VARCHAR(4) PRIMARY KEY,
-    duo VARCHAR(4) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mbti VARCHAR(50) NOT NULL,
+    duo VARCHAR(50) NOT NULL,
+    UNIQUE KEY (mbti, duo)
 );
