@@ -28,7 +28,7 @@ services:
       - mysql
     env_file:
       - ./MBTI-test-server/.env
-    expose:
+    ports:
       - "8080:8080"
 
      
