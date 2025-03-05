@@ -23,7 +23,7 @@ public class UserCount {
 
 	@Id
 	@Column(name = "user_count_id", columnDefinition = "BIGINT(20)")
-	private final Long id = 1L;
+	private Long id = 1L;
 
 	@Builder.Default
 	@Column(name = "user_count", columnDefinition = "BIGINT(20) default 0")
