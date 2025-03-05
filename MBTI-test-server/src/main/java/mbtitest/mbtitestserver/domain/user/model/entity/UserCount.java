@@ -22,15 +22,14 @@ import lombok.NoArgsConstructor;
 public class UserCount {
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "user_count_id", columnDefinition = "BIGINT(20)")
-	private Long id;
+	private Long id = 1L;
 
 	@Builder.Default
 	@Column(name = "user_count", columnDefinition = "BIGINT(20) default 0")
 	private Long userCount = 0L;
 
 	public void increaseUserCount() {
-		this.userCount++;
+		userCount++;
 	}
 }

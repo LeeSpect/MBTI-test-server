@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class MbtiDuoResponse {
+public class MbtiCountResponse {
 
+    private final Long count;
     private final String mbti;
-    private final String duo;
 }
