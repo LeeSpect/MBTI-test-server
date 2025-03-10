@@ -29,8 +29,6 @@ services:
       - ./MBTI-test-server/.env
     ports:
       - "8080:8080"
-    networks:
-      - internal
 
      
   nginx:
@@ -44,11 +42,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    networks:
-      - internal
 
 volumes:
   mysql_data:
-
-networks:
-  internal:
