@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/travel")
+@RequestMapping("/travels")
 public class TravelController {
 
     private final TravelFacade travelFacade;
 
-    @PostMapping("/result")
+    @PostMapping("/results")
     public void updateMbtiCount(@Valid @RequestBody TravelTestResultRequest request) {
         travelFacade.updateMbtiCount(request);
     }
@@ -24,4 +24,12 @@ public class TravelController {
     public ResponseEntity<?> getMbtiDuoRatio(@RequestParam(name = "myMbtiType") String mbti) {
         return ResponseEntity.ok(travelFacade.getMbtiDuoRatio(mbti));
     }
+
+    @GetMapping("/gpt-responses")
+    public ResponseEntity<?> getGPTResponse(@RequestParam(name = "mbti") String mbti,
+                                            @RequestParam(name = "city") String city,
+                                            @RequestParam(name = "country") String country) {
+        return ResponseEntity.ok(travelFacade.getGPTResponse(mbti, city, country));
+    }
+
 }
