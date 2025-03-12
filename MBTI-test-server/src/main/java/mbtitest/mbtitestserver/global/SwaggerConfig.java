@@ -1,17 +1,26 @@
 package mbtitest.mbtitestserver.global;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.servers.Server;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
 
 @Configuration
-@OpenAPIDefinition(
-        info = @Info(
-                title = "MBTI Test API",
-                version = "1.0",
-                description = "API documentation for MBTI Test Server"
-        )
-)
 public class SwaggerConfig {
+
+    @Bean
+    public OpenAPI openAPI() {
+        return new OpenAPI()
+                .addServersItem(new Server().url("https://fallin-mbti.site"))
+                .info(apiInfo());
+    }
+
+    private Info apiInfo() {
+        return new Info()
+                .title("MBTI test Server API")
+                .description("MBTI test Server API")
+                .version("1.0");
+    }
 
 }

@@ -10,21 +10,23 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/travels")
-public class TravelController {
+public class TravelController implements TravelControllerSpecification {
 
     private final TravelFacade travelFacade;
 
+    @Override
     @PostMapping("/results")
     public void updateMbtiCount(@Valid @RequestBody TravelTestResultRequest request) {
         travelFacade.updateMbtiCount(request);
     }
 
-    // /travels/results?myMbtiType={myMbtiType}
+    @Override
     @GetMapping("/results")
     public ResponseEntity<?> getMbtiDuoRatio(@RequestParam(name = "myMbtiType") String mbti) {
         return ResponseEntity.ok(travelFacade.getMbtiDuoRatio(mbti));
     }
 
+    @Override
     @GetMapping("/gpt-responses")
     public ResponseEntity<?> getGPTResponse(@RequestParam(name = "mbti") String mbti,
                                             @RequestParam(name = "city") String city,

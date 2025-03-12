@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
-public class UserController {
+public class UserController implements UserControllerSpecification {
 
     private final UserFacade userFacade;
 
+    @Override
     @GetMapping("/total-counts")
     public ResponseEntity<?> getUserCount() {
         return ResponseEntity.ok(userFacade.getUserCount());

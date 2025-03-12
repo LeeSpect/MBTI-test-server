@@ -21,6 +21,11 @@ public class GPTUtilImpl {
             .defaultHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
             .build();
 
+    /**
+     * GPT 응답을 가져온다.
+     * @param planDetailRequest 여행 계획 상세
+     * @return GPT 응답
+     */
     public GPTResponse getGPTResponse(PlanDetailRequest planDetailRequest) {
         return webClient.post()
                 .uri("chat/completions")
