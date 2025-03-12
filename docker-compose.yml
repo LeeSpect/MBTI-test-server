@@ -15,7 +15,7 @@ services:
       - "3306:3306"
 
   backend:
-    image: mbti-test-server:1.3
+    image: mbti-test-server:1.4
     container_name: back-server
     restart: always
     environment:
